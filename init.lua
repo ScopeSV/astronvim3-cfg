@@ -1,6 +1,12 @@
 return {
 
 
+    lsp = {
+      formatting = {
+        format_on_save = false,
+      },
+    },
+
   config = function()
   require("lewis6991/gitsigns.nvim").setup() {
     current_line_blame = true
@@ -19,10 +25,20 @@ return {
     vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
     vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+    vim.cmd([[
+      let g:go_highlight_types = 1
+      let g:go_highlight_fields = 1
+      let g:go_highlight_function_calls = 1
+      let g:go_highlight_functions = 0
+      let g:go_highlight_operators = 1
+      let g:go_highlight_extra_types = 1
+    ]])
+
     -- Harpoon
     local mark = require("harpoon.mark")
     local ui = require("harpoon.ui")
 
+    -- Go-vim syntax
     vim.keymap.set("n", "<leader>a", mark.add_file)
     vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu)
     vim.keymap.set("n", "<leader>1", function() ui.nav_file(1) end)
@@ -41,8 +57,12 @@ return {
     vim.opt.shiftwidth = 4
     vim.opt.expandtab = true
 
- --   L = { function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" },
---    H = { function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Previous buffer" }
+    vim.cmd([[
+      syntax enable
+      filetype plugin indent on
+    ]])
+
+
   end,
 
 }
