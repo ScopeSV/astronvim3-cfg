@@ -3,7 +3,7 @@ return {
 
     lsp = {
       formatting = {
-        format_on_save = false,
+        format_on_save = true,
       },
     },
 
@@ -24,6 +24,11 @@ return {
 
     vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
     vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+    -- Make nvim vindows scrollable by pressing C-o. For example for reading through a long test
+    vim.cmd([[
+      tmap <C-o> <C-\><C-n>
+    ]])
 
     vim.cmd([[
       let g:go_highlight_types = 1

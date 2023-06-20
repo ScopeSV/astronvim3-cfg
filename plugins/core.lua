@@ -18,7 +18,7 @@ return {
            local wk = require "which-key"
            wk.register({
              T = { name = "Testing",
-              t = {"<Cmd>:TestNearest<CR>", "Test nearest"},
+              t = {"<Cmd>:TestNearest -v<CR>", "Test nearest"},
                 f = {"<Cmd>:TestFile<CR>", "Test file"},
                 s = {"<Cmd>:TestSuite<CR>", "Test suite"},
                 l = {"<Cmd>:TestLast<CR>", "Test last"},
