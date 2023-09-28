@@ -1,23 +1,26 @@
 return {
+  -- vim.cmd('colorscheme github_dark_high_contrast'),
+  -- vim.cmd('colorscheme catppuccin'),
+  colorscheme = "github_dark_high_contrast",
+  -- colorscheme = "catppuccin-mocha",
 
 
-    lsp = {
-      formatting = {
-        format_on_save = true,
-      },
+  lsp = {
+    formatting = {
+      format_on_save = true,
     },
+  },
 
   config = function()
-  require("lewis6991/gitsigns.nvim").setup() {
-    current_line_blame = true
-  }
+    require("lewis6991/gitsigns.nvim").setup() {
+      current_line_blame = true
+    }
   end,
   polish = function()
-
     -- Transparent nvim
-    vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-    vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
-    vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+    -- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+    -- vim.cmd("hi EndOfBuffer guibg=NONE ctermbg=NONE")
+    -- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 
     vim.keymap.set("n", "<C-d>", "<C-d>zz")
     vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -66,9 +69,6 @@ return {
       syntax enable
       filetype plugin indent on
     ]])
-
-
   end,
 
 }
-
